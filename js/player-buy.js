@@ -73,7 +73,12 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
     const selectedPlayer = parseInt(selectedNumberString);
 
     const Expenses = PlayerFieldAmmount * selectedPlayer;
-    console.log(Expenses)
+
+    const expenses = document.getElementById('expenses')
+    expenses.innerText = Expenses;
+
+
+    // console.log(expensesAmmount)
 
 
 })
