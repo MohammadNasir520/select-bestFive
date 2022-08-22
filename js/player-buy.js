@@ -53,11 +53,24 @@ function setPlayerName(name) {
 };
 
 // get input value by a common function
-function getInputValueById(inputField) {
-    const PlayerField = document.getElementById(inputField);
-    const PlayerFieldString = PlayerField.value;
-    const PlayerFieldAmmount = parseFloat(PlayerFieldString);
-    return PlayerFieldAmmount;
+function getInputValueById(inputId) {
+    const inputField = document.getElementById(inputId);
+    const inputFieldString = inputField.value;
+    const inputFieldAmmount = parseFloat(inputFieldString);
+    return inputFieldAmmount;
+};
+
+// set Input value by a common function:
+function setElementValueById(textid, value) {
+    const expenses = document.getElementById(textid)
+    expenses.innerText = value;
+
+};
+
+// button disabled by a common function
+function disableButton(button) {
+    document.getElementById(button).setAttribute('disabled', true);
+    document.getElementById(button).style.backgroundColor = 'Lavender'
 }
 
 document.getElementById('btn-calculate').addEventListener('click', function () {
@@ -74,11 +87,55 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
 
     const Expenses = PlayerFieldAmmount * selectedPlayer;
 
-    const expenses = document.getElementById('expenses')
-    expenses.innerText = Expenses;
-
+    setElementValueById('expenses', Expenses)
 
     // console.log(expensesAmmount)
 
+
+});
+document.getElementById('btn-calculate-total').addEventListener('click', function () {
+    const manegerField = getInputValueById('manager-field');
+    const coachField = getInputValueById('coach-field')
+
+    const managerCoachTotal = manegerField + coachField;
+    setElementValueById('Final-total', managerCoachTotal)
+
+    const Expenses = document.getElementById('expenses');
+    const ExpensesString = Expenses.innerText;
+    const summationOfCalculation = parseFloat(ExpensesString);
+
+    const finalTotal = summationOfCalculation + managerCoachTotal;
+    setElementValueById('Final-total', finalTotal)
+    // console.log(finalTotal)
+});
+
+document.getElementById('btn-messy').addEventListener('click', function () {
+    disableButton('btn-messy')
+
+})
+
+document.getElementById('btn-messy').addEventListener('click', function () {
+    disableButton('btn-messy')
+
+})
+
+document.getElementById('btn-messy').addEventListener('click', function () {
+    disableButton('btn-messy')
+
+})
+
+document.getElementById('btn-messy').addEventListener('click', function () {
+    disableButton('btn-messy')
+
+})
+
+document.getElementById('btn-messy').addEventListener('click', function () {
+    disableButton('btn-messy')
+
+})
+
+
+document.getElementById('btn-messy').addEventListener('click', function () {
+    disableButton('btn-messy')
 
 })
