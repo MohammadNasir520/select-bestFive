@@ -20,8 +20,8 @@ function getSelectButton(element) {
 
 
     const selectedNumberString = totalSelectedPlayer.innerText;
-    const selectedNumberStringParsInt = parseInt(selectedNumberString);
-    console.log(selectedNumberStringParsInt)
+    const selectedPlayer = parseInt(selectedNumberString);
+    // console.log(selectedPlayer)
 
 
 
@@ -50,4 +50,30 @@ function setPlayerName(name) {
     }
 
 
+};
+
+// get input value by a common function
+function getInputValueById(inputField) {
+    const PlayerField = document.getElementById(inputField);
+    const PlayerFieldString = PlayerField.value;
+    const PlayerFieldAmmount = parseFloat(PlayerFieldString);
+    return PlayerFieldAmmount;
 }
+
+document.getElementById('btn-calculate').addEventListener('click', function () {
+
+
+    const PlayerFieldAmmount = getInputValueById('player-field')
+
+    const totalSelectedPlayer = document.getElementById('total-selected-player');
+    totalSelectedPlayer.innerText = playerNameAray.length;
+
+
+    const selectedNumberString = totalSelectedPlayer.innerText;
+    const selectedPlayer = parseInt(selectedNumberString);
+
+    const Expenses = PlayerFieldAmmount * selectedPlayer;
+    console.log(Expenses)
+
+
+})
