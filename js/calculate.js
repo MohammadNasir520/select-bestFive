@@ -55,6 +55,10 @@ function getInputValueById(inputId) {
     if (typeof inputFieldAmmount !== 'number') {
         alert('Please Enter valid number')
     }
+    else if (inputFieldAmmount < 0) {
+        alert('please enter positive number')
+        return;
+    }
     return inputFieldAmmount;
 };
 
