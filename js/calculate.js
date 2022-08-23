@@ -12,7 +12,7 @@ function getSelectButton(element) {
     }
     else if (playerNameAray.length === 5) {
         alert('you can not buy more than five players')
-        return playerNameAray;
+        return;
     }
 
     const totalSelectedPlayer = document.getElementById('total-selected-player');
@@ -22,11 +22,6 @@ function getSelectButton(element) {
     const selectedNumberString = totalSelectedPlayer.innerText;
     const selectedPlayer = parseInt(selectedNumberString);
     // console.log(selectedPlayer)
-
-
-
-
-
 
     setPlayerName(playerName);
 }
@@ -52,16 +47,13 @@ function setPlayerName(name) {
 
 };
 
-
 // get input value by a common function
 function getInputValueById(inputId) {
     const inputField = document.getElementById(inputId);
     const inputFieldString = inputField.value;
     const inputFieldAmmount = parseFloat(inputFieldString);
-    console.log(inputFieldAmmount)
-    if (typeof inputFieldString !== 'number') {
-        alert('Please enter number')
-        return inputField;
+    if (typeof inputFieldAmmount !== 'number') {
+        alert('Please Enter valid number')
     }
     return inputFieldAmmount;
 };
@@ -69,7 +61,7 @@ function getInputValueById(inputId) {
 // set Input value by a common function:
 function setElementValueById(textid, value) {
     if (isNaN(value)) {
-
+        alert('please enter number')
         return value;
     }
     const expenses = document.getElementById(textid)
@@ -77,22 +69,8 @@ function setElementValueById(textid, value) {
 
 };
 
-// button disabled by a common function
-function disableButton(button) {
-    const totalSelectedPlayer = parseFloat((document.getElementById('total-selected-player')).innerText);
-    console.log(totalSelectedPlayer)
-    if (totalSelectedPlayer < 6) {
 
-        document.getElementById(button).setAttribute('disabled', true);
-        document.getElementById(button).style.backgroundColor = 'Lavender'
-    }
-
-
-
-
-}
-
-
+// calculate buton start
 document.getElementById('btn-calculate').addEventListener('click', function () {
 
 
@@ -109,10 +87,10 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
 
     setElementValueById('expenses', Expenses)
 
-    // console.log(expensesAmmount)
-
-
 });
+// calculate buton end
+
+
 document.getElementById('btn-calculate-total').addEventListener('click', function () {
     const manegerField = getInputValueById('manager-field');
     const coachField = getInputValueById('coach-field')
@@ -129,6 +107,19 @@ document.getElementById('btn-calculate-total').addEventListener('click', functio
     // console.log(finalTotal)
 });
 
+
+// button disabled function
+function disableButton(button) {
+    const totalSelectedPlayer = parseFloat((document.getElementById('total-selected-player')).innerText);
+    console.log(totalSelectedPlayer)
+    if (totalSelectedPlayer < 6) {
+
+        document.getElementById(button).setAttribute('disabled', true);
+        document.getElementById(button).style.backgroundColor = 'Lavender'
+    }
+}
+
+// button disabled event handlar
 document.getElementById('btn-messy').addEventListener('click', function () {
     disableButton('btn-messy')
 
